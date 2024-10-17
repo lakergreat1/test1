@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Transcription and Report Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.3/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <script src="{{ url_for('static', path='js/app.js') }}" defer></script>
+</head>
+<body class="bg-base-300 text-base-content">
+    <div class="container mx-auto p-4 flex">
+        <div class="w-1/2 pr-4">
+            <h1 class="text-3xl font-bold mb-4">Audio Transcription and Report Generator</h1>
+            <div class="mb-4">
+                <button id="recordButton" class="btn btn-primary">
+                    <span id="micIcon" class="text-2xl">🎙️</span>
+                    <span id="recordText">Start Recording</span>
+                </button>
+            </div>
+            <div class="mb-4">
+                <label for="audioFileUpload" class="block text-sm font-medium mb-2">Or upload an MP3 file (max 25MB)</label>
+                <input type="file" id="audioFileUpload" accept=".mp3" class="file-input file-input-bordered w-full max-w-xs" />
+            </div>
+            <textarea id="transcriptionArea" class="textarea textarea-bordered w-full h-64 mb-4" placeholder="Transcribed text will appear here..."></textarea>
+            <div class="mb-4">
+                <select id="occurrenceType" class="select select-bordered w-full max-w-xs">
+                    <option disabled selected>Select Occurrence Type</option>
+                    {% for type in occurrence_types %}
+                    <option value="{{ type }}">{{ type }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-4">
+                <select id="reportType" class="select select-bordered w-full max-w-xs">
+                    <option disabled selected>Select Report Type</option>
+                    {% for type in report_types %}
+                    <option value="{{ type }}">{{ type }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button id="generateReportButton" class="btn btn-secondary">
+                <span>Generate Report</span>
+                <span id="loadingSpinner" class="loading loading-spinner loading-sm ml-2 hidden"></span>
+            </button>
+        </div>
+        <div class="w-1/2 pl-4">
+            <div id="reportOutput" class="mt-4 p-4 bg-base-200 rounded-lg hidden">
+                <h2 class="text-xl font-bold mb-2">Generated Report</h2>
+                <textarea id="reportContent" class="textarea textarea-bordered w-full h-[calc(100vh-16rem)] resize-none"></textarea>
+                <div class="mt-4 flex items-center">
+                    <input id="editInstructions" type="text" placeholder="Enter edit instructions" class="input input-bordered flex-grow mr-2">
+                    <button id="sendEditButton" class="btn btn-primary">
+                        <span>Send</span>
+                        <span id="editLoadingSpinner" class="loading loading-spinner loading-sm ml-2 hidden"></span>
+                    </button>
+                </div>
+                <div class="mt-4 flex justify-end space-x-2">
+                    <button id="downloadPdfButton" class="btn btn-outline btn-info">
+                        Download PDF
+                    </button>
+                    <button id="downloadWordButton" class="btn btn-outline btn-success">
+                        Download Word
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

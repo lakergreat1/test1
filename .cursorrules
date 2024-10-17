@@ -1,0 +1,123 @@
+we are building a fastapi webapp with daisyui and tailwind, dark mode, with subtle colors. 
+main.py should be in root directory. and runs the app with "main:app" with reload
+
+this app will either or record user audio and trascribe it using whisper api. and then create a final repost. final report can be of one of many occurence categories and each category will have a different set of report types. occurence must be selected first and then report type.
+it shouldbbe abelt o record audio in chunks meaning the person using it can record a piece then think and record another piece and so on...
+
+each audio piece recorded will get transcribed immediately and be displayed in a text area which is editable by the user. each new audio which is recorded and transcribed will be appended to the end of the text area.
+this input box can be used to paste cutom text as well. this box should be visible at page load.
+
+implement  a nice microphone icon which changes with the actions being taken.
+
+in the backend we will use whisper api as such:
+
+from openai import OpenAI
+client = OpenAI()
+
+audio_file= open("/path/to/file/audio.mp3", "rb")
+transcription = client.audio.transcriptions.create(
+  model="whisper-1", 
+  file=audio_file
+)
+print(transcription.text)
+
+and return the transcribed text to be displayed in the text area as explained
+
+after the transcription is done, we will use the openai structured output api to create a report based on the occurence category and the report type.
+
+occurence type names:
+Domestic Dispute
+Impaired Driving
+Property Crime
+Traffic Incident
+Drug Related
+Informational Report
+Public Disorder
+Violent Crime
+Fraud and Financial
+Missing Person
+Sexual Offense
+Other
+
+report types are:
+Crown Brief 
+General Occurrence 
+
+pydantic schemas will be defined for each report type
+schema will be the same for all occurence types as follows:
+Officer full name and badge number:
+Occurrence number: 
+Occurrence type:
+Report Time (Dispatch time):
+Occurrence Time: 
+
+Persons Details:
+Surname: 
+Given 1: 
+Given 2: 
+Sex type: 
+Date of Birth: 
+
+Persons Address:
+House or building number: 
+Street Address: 
+Apartment or room number: 
+City, Town: 
+Type of Residence: 
+
+Contact info:
+Phone number including area code: 
+Phone # Type: 
+Social Media Type: 
+Social Media Handle: 
+Email address: 
+
+Involvement type:
+
+Narrative: (DESCRIPTION OF THIS IS IMPORTED FROM narrative_guidelines.py)
+End of Report Badge Number: 
+
+
+if a field is not known, use "information missing from transcript"
+
+pydantic schemas should be defined in a file called reports.py and should be imported in main.py
+
+here is the sample api call for structured output:
+from pydantic import BaseModel
+from openai import OpenAI
+
+client = OpenAI()
+
+class CalendarEvent(BaseModel):
+    name: str
+    date: str
+    participants: list[str]
+
+completion = client.beta.chat.completions.parse( # make sure to use .beta and .parse
+    model="gpt-4o", # use this model exactly
+    messages=[
+        {"role": "system", "content": "Extract the event information."},
+        {"role": "user", "content": "Alice and Bob are going to a science fair on Friday."},
+    ],
+    response_format=CalendarEvent,
+)
+
+event = completion.choices[0].message.parsed # make sure to use .parsed
+
+returned even will be a pydantic object. you can convert this to json with the objects .model_dump() method.
+
+we will save this json to a file
+
+create all necessary files and folders
+
+DESIGN SPECS:
+- USE DAISY UI DARK MODE WITH SUBTLE COLORS
+- IMPLEMENT NICE AND SIMPLE WAITING ANIMATION WHENEVER NECESSARY
+- USE NICE ICONS
+- MAKE THE APP RESPONSIVE 
+- USE TRY CATCH BLOCKS TO HANDLE ERRORS
+- USE INFORMATIONAL PRINT STATEMENTS ON THE BACKEND TO INFORM AND ALLOW DEBUGGING
+
+POSSIBLE CONSIDERATIONS:
+- If the backend is using a temp audio file make sure the processes which access it is completed before the file is removed.
+

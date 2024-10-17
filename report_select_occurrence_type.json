@@ -1,0 +1,31 @@
+{
+  "officer_full_name_and_badge_number": "Constable Gerald Duffy, WBADG-362",
+  "occurrence_number": "TB-23032-264",
+  "occurrence_type": "Weapons Reporting Officers",
+  "report_time": "Thursday, August 10th, 2023, approximately 17-2900 hours",
+  "occurrence_time": "2023, August 10th, between 0650-600 hours and 0710-100 hours",
+  "persons_details": {
+    "surname": "Achapiniscum",
+    "given_1": "Matthew",
+    "given_2": null,
+    "sex_type": "Male",
+    "date_of_birth": "2000, April 21"
+  },
+  "persons_address": {
+    "house_or_building_number": "704",
+    "street_address": "McLaughlin Street",
+    "apartment_or_room_number": null,
+    "city_town": "information missing from transcript",
+    "type_of_residence": "Duplex"
+  },
+  "contact_info": {
+    "phone_number": "631-9617",
+    "phone_type": "Cellular",
+    "social_media_type": null,
+    "social_media_handle": null,
+    "email_address": null
+  },
+  "involvement_type": "Complainant",
+  "narrative": "On August 10th, 2023, officers were dispatched to a weapons call at 1010 Dawson Road. However, the complainant, Matthew Achapiniscum, was found at his residence at 704 McLaughlin Street. Upon arrival, Constables Duffy and Wicharyk confirmed Matthew was intoxicated but uninjured. Matthew admitted his report was a hoax intended for a TikTok video. Officers did not press charges but warned him of potential legal consequences. Matthew was apologetic, and no further action was required.",
+  "end_of_report_badge_number": "WBADG-362"
+}

@@ -1,0 +1,31 @@
+{
+  "officer_full_name_and_badge_number": "Officer D, Badge 3602",
+  "occurrence_number": "TB2332264",
+  "occurrence_type": "Weapons",
+  "report_time": "Thursday, August 10th, 2023, 17:29 hours",
+  "occurrence_time": "August 10th, 2023, between 6:56 hours and 7:10 hours",
+  "persons_details": {
+    "surname": "AChneePineskum",
+    "given_1": "Matthew",
+    "given_2": null,
+    "sex_type": "Male",
+    "date_of_birth": "2000-04-21"
+  },
+  "persons_address": {
+    "house_or_building_number": "704",
+    "street_address": "First Street",
+    "apartment_or_room_number": null,
+    "city_town": "information missing from transcript",
+    "type_of_residence": "Duplex"
+  },
+  "contact_info": {
+    "phone_number": "6319617",
+    "phone_type": "Cell",
+    "social_media_type": "TikTok",
+    "social_media_handle": "information missing from transcript",
+    "email_address": null
+  },
+  "involvement_type": "Complainant",
+  "narrative": "On Thursday, August 10th, 2023, at approximately 6:56 hours, Constable Larry Fluffy (Badge 362) and Constable Justin Adams (Badge 779) were dispatched to address a weapons call at 1010 Dawson Road. The initial report indicated that a male complainant had been stabbed and that the accused was nearby. However, further communication revealed that the complainant, identified as Matthew Achnenepineskum, was actually at his residence at 704 First Street.\n\nThe officers used system resources to confirm the location of Matthew's cell phone, which verified his presence near 704 First Street. Upon arrival, they first contacted a neighbor at 706 First Street, Mr. Darren Gorrell, who was unaware of the situation and did not know Matthew.\n\nSubsequently, the officers knocked on the door at 704 First Street and Matthew Achnenepineskum, who appeared visibly intoxicated, answered. He exhibited signs of intoxication, including unsteady gait, slurred speech, and mood swings. Matthew confessed that the stabbing incident was a hoax intended to create a TikTok video, and he expressed remorse for his actions, repeatedly apologizing and confirming he had deleted the video.\n\nOfficers verified that Matthew had not sustained any injuries and required no medical attention. Despite the serious nature of the false report, Constable Fluffy opted to exercise discretion and did not press charges, instead issuing a warning of potential public mischief charges for providing false information to police. Given the nature of the call and the outcome, no further police action is required.\n\nNo injuries, damages, or losses were reported or observed during the incident. The report is filed for documentation purposes only, with no follow-up actions necessary.\n\nEnd of report by Officer D, Badge 3602.",
+  "end_of_report_badge_number": "3602"
+}
